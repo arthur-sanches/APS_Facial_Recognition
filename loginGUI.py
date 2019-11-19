@@ -32,7 +32,7 @@ class Ui_Dialog(object):
         self.label_2.setGeometry(QtCore.QRect(30, 60, 51, 17))
         self.label_2.setObjectName("label_2")
         self.label_response = QtWidgets.QLabel(Dialog)
-        self.label_response.setGeometry(QtCore.QRect(120, 170, 251, 20))
+        self.label_response.setGeometry(QtCore.QRect(70, 170, 351, 20))
         self.label_response.setText("")
         self.label_response.setObjectName("label_response")
 

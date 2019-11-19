@@ -22,6 +22,8 @@ class Signup(QDialog):
         self.ui.password_signup.clear()
         self.ui.password_con_signup.clear()
 
+        # checks a determined radio button then changes its properties in 
+        # order to uncheck it without checking another radio button
         self.ui.lvl1_signup.setChecked(True)
         self.ui.lvl1_signup.setAutoExclusive(False)
         self.ui.lvl1_signup.setChecked(False)
@@ -40,7 +42,9 @@ class Signup(QDialog):
         sql_statement="INSERT INTO users (name, email, password, usrlevel) VALUES ('" + self.ui.name_signup.text() + "','" + self.ui.email_signup.text() + "','" + self.ui.password_signup.text() + "','" + str(level) + "')"
 
         try:
-            with sqlite3.connect("aps/aps.db") as conn: # Make sure the path is ok for freezing the scripts
+            # start a connection with the database
+            with sqlite3.connect("aps/aps.db") as conn:
+                # initialize a cursor to execute the database commands
                 cur = conn.cursor()
                 cur.execute(sql_statement)
                 self.ui.label_response.setText("User account created")
