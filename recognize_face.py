@@ -6,7 +6,7 @@ import cv2
 def check_person():
 	"""Uses an image named user_image to verify who the person on the image is based on a pre-trained dataset of images"""
 	
-	args = {"encodings":"aps/encodings.pickle", "image":"aps/user_image.png", "detection_method":"hog"}
+	args = {"encodings":"encodings.pickle", "image":"user_image.png", "detection_method":"hog"}
 
 	# load the known faces and embeddings
 	data = pickle.loads(open(args["encodings"], "rb").read())

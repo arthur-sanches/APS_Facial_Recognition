@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Sign Up</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -166,9 +166,9 @@
   <widget class="QLabel" name="label_response">
    <property name="geometry">
     <rect>
-     <x>246</x>
+     <x>216</x>
      <y>230</y>
-     <width>211</width>
+     <width>241</width>
      <height>20</height>
     </rect>
    </property>

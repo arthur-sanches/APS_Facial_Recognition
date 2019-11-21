@@ -51,7 +51,7 @@ class Ui_Dialog(object):
         self.password_con_signup.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password_con_signup.setObjectName("password_con_signup")
         self.label_response = QtWidgets.QLabel(Dialog)
-        self.label_response.setGeometry(QtCore.QRect(246, 230, 211, 20))
+        self.label_response.setGeometry(QtCore.QRect(216, 230, 241, 20))
         self.label_response.setText("")
         self.label_response.setObjectName("label_response")
 
@@ -60,7 +60,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Sign Up"))
         self.label.setText(_translate("Dialog", "Name :"))
         self.label_2.setText(_translate("Dialog", "E-mail :"))
         self.label_3.setText(_translate("Dialog", "Password :"))

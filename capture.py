@@ -9,7 +9,7 @@ def show_webcam(mirror=False):
             img = cv2.flip(img, 1)
         cv2.imshow('Webcam', img)
         if cv2.waitKey(1) == 32:
-            img_name = "aps/user_image.png"
+            img_name = "user_image.png"
             cv2.imwrite(img_name, img)
             break  # spacebar to take picture and quit
         if cv2.waitKey(2) == 27: 

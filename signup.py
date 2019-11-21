@@ -30,6 +30,7 @@ class Signup(QDialog):
         self.ui.lvl1_signup.setAutoExclusive(True)
 
     def insert_rows(self):
+        self.ui.label_response.clear()
         """Insert new users' information into the database."""
         level = 0
         if self.ui.lvl3_signup.isChecked() == True:
@@ -39,18 +40,21 @@ class Signup(QDialog):
         else:
             level = 1
 
-        sql_statement="INSERT INTO users (name, email, password, usrlevel) VALUES ('" + self.ui.name_signup.text() + "','" + self.ui.email_signup.text() + "','" + self.ui.password_signup.text() + "','" + str(level) + "')"
+        if self.ui.password_signup.text() != self.ui.password_con_signup.text():
+            self.ui.label_response.setText('Passwords are different')
+        else:
+            sql_statement="INSERT INTO users (name, email, password, usrlevel) VALUES ('" + self.ui.name_signup.text() + "','" + self.ui.email_signup.text() + "','" + self.ui.password_signup.text() + "','" + str(level) + "')"
 
-        try:
-            # start a connection with the database
-            with sqlite3.connect("aps/aps.db") as conn:
-                # initialize a cursor to execute the database commands
-                cur = conn.cursor()
-                cur.execute(sql_statement)
-                self.ui.label_response.setText("User account created")
-                self.clear_fields()
-        except Error as e:
-            self.ui.label_response.setText("Error creating account")
+            try:
+                # start a connection with the database
+                with sqlite3.connect("aps.db") as conn:
+                    # initialize a cursor to execute the database commands
+                    cur = conn.cursor()
+                    cur.execute(sql_statement)
+                    self.ui.label_response.setText("User account created")
+                    self.clear_fields()
+            except Error as e:
+                self.ui.label_response.setText("Error creating account")
 
 if __name__=="__main__":
     app = QApplication(sys.argv)
